@@ -3,8 +3,13 @@ const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT;
+const URL = process.env.URL;
 
-app.use(cors());
+app.use(cors({
+  origin: URL, // domain FE thật
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Fake data
